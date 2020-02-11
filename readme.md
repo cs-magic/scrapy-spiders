@@ -22,4 +22,4 @@
 
 如果对您有帮助，不妨请我喝一杯咖啡吧？
 
-![A Coffie ~](resources/mark_wechat_pocket_qr.png)
+![A Coffie ~](resources/mark_wechat_pocket_qr_noword.png)
