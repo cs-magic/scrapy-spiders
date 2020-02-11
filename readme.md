@@ -23,3 +23,6 @@
 如果对您有帮助，不妨请我喝一杯咖啡吧？
 
 ![A Coffie ~](resources/mark_wechat_pocket_qr_noword.png)
+
+> 图片如无法显示，可参考这篇:- [【最新】解决github图片不显示的问题_Antrn的博客-CSDN博客](https://blog.csdn.net/qq_38232598/article/details/91346392)
+>
