@@ -97,7 +97,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
 			else:
 				self.driver = self.q_drivers.get()  # type: WeiboDriver
 				logging.info("Got driver {}".format(self.driver.ac_name))
-				driver_imp_path = "{}.png".format(str(time.time()))
+				driver_imp_path = "qr_imgs/{}.png".format(str(time.time()))
 				self.driver.qr_img.save(driver_imp_path)
 				self.qr_lable.setPixmap(QtGui.QPixmap(driver_imp_path).scaled(400, 160))
 				self.console.append("Current driver showing the img is {}".format(self.driver.ac_name))
