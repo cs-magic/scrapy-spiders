@@ -20,6 +20,6 @@
 ### About Me
 数据采集、数据分析、数据可视化爱好者。
 
-如您有项目需要合作，请联系下方微信。
+如果对您有帮助，不妨请我喝一杯咖啡吧？
 
-【微信二维码】
+![A Coffie ~](resources/mark_wechat_pocket_qr.png)
