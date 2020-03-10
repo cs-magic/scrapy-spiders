@@ -9,7 +9,10 @@ import re
 import json
 from datetime import datetime, timedelta
 from urllib import parse
-from .scrapy_weibo_pc.settings import PROJECT_DIR
+try:
+    from .scrapy_weibo_pc.settings import PROJECT_DIR
+except:
+    from scrapy_weibo_pc.settings import PROJECT_DIR
 
 
 weibo_city_code_dict = json.load(open(os.path.join(PROJECT_DIR, "js/weibo_city_code.json"), "r"))

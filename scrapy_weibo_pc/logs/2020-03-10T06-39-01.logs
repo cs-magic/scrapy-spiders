@@ -1,0 +1,66 @@
+2020-03-10 06:39:01 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: scrapy_weibo_pc)
+2020-03-10 06:39:01 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-03-10 06:39:01 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrapy_weibo_pc', 'COOKIES_ENABLED': False, 'DOWNLOAD_DELAY': 0.3, 'LOG_FILE': 'logs/2020-03-10T06-39-01.logs', 'LOG_LEVEL': 10, 'NEWSPIDER_MODULE': 'scrapy_weibo_pc.spiders', 'REDIRECT_ENABLED': False, 'SPIDER_MODULES': ['scrapy_weibo_pc.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'}
+2020-03-10 06:39:01 [scrapy.extensions.telnet] INFO: Telnet Password: 8c6b885906fbb057
+2020-03-10 06:39:01 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-03-10 06:39:03 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-03-10 06:39:03 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-03-10 06:39:03 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrapy_weibo_pc.pipelines.ScrapyWeiboPcMongoPipeline']
+2020-03-10 06:39:03 [scrapy.core.engine] INFO: Spider opened
+2020-03-10 06:39:03 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-03-10 06:39:03 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-03-10 06:39:03 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-02-0%3A2020-01-02-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:03 [scrapy.core.engine] INFO: Closing spider (Closed Manually!)
+2020-03-10 06:39:03 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-03-0%3A2020-01-03-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:04 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-04-0%3A2020-01-04-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:04 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-05-0%3A2020-01-05-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:04 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-06-0%3A2020-01-06-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:05 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-07-0%3A2020-01-07-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:05 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-08-0%3A2020-01-08-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:05 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-09-0%3A2020-01-09-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:06 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-10-0%3A2020-01-10-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:06 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-11-0%3A2020-01-11-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:06 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-12-0%3A2020-01-12-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:07 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-13-0%3A2020-01-13-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:07 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-14-0%3A2020-01-14-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:08 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-15-0%3A2020-01-15-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:08 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-16-0%3A2020-01-16-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:09 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-17-0%3A2020-01-17-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:09 [scrapy.core.engine] DEBUG: Crawled (302) <GET https://s.weibo.com/weibo?q=%E5%8F%A3%E7%BD%A9&timescope=custom%3A2020-01-18-0%3A2020-01-18-24&region=custom%3A0%3A0&Refer=g&scope=ori&suball=1> (referer: None)
+2020-03-10 06:39:09 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 18581,
+ 'downloader/request_count': 17,
+ 'downloader/request_method_count/GET': 17,
+ 'downloader/response_bytes': 12976,
+ 'downloader/response_count': 17,
+ 'downloader/response_status_count/302': 17,
+ 'elapsed_time_seconds': 6.507509,
+ 'finish_reason': 'Closed Manually!',
+ 'finish_time': datetime.datetime(2020, 3, 9, 22, 39, 9, 704728),
+ 'log_count/DEBUG': 17,
+ 'log_count/INFO': 10,
+ 'response_received_count': 17,
+ 'scheduler/dequeued': 17,
+ 'scheduler/dequeued/memory': 17,
+ 'scheduler/enqueued': 17,
+ 'scheduler/enqueued/memory': 17,
+ 'start_time': datetime.datetime(2020, 3, 9, 22, 39, 3, 197219)}
+2020-03-10 06:39:09 [scrapy.core.engine] INFO: Spider closed (Closed Manually!)

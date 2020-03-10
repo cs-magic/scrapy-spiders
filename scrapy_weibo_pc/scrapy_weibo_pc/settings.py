@@ -16,6 +16,14 @@ NEWSPIDER_MODULE = 'scrapy_weibo_pc.spiders'
 
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
+
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+   'Cookie': 'un=17766091857;_s_tentry=login.sina.com.cn;ALF=1613379449;Apache=3394628681636.194.1581843452201;SCF=Asr3ivn_z8NujEk_O5ZHkJRNx8BlbfgKic22Hb4VrkAcIsr4XMcDChSFLDbG8a8ZsnUESBTpVpaQ-zNbv9M9KiE.;SINAGLOBAL=7551193299492.775.1581107872253;SSOLoginState=1581843450;SUB=_2A25zTXOjDeRhGeRG61AX8SvFzT2IHXVQO-JrrDV8PUNbmtAfLU2ikW9NUjq315N3p-k8pWFgMCDh5Sif-BEzyRHc;SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5wRY9K.D6usaX6FLKd2QEF5JpX5KMhUgL.FozRehzceK-4So22dJLoI7fSqPiu-cyyUcREehz7;SUHB=0V5kkpNGHLsUQC;ULV=1581843452342:10:10:1:3394628681636.194.1581843452201:1581577252811;un=17766091857;UOR=login.sina.com.cn,s.weibo.com,login.sina.com.cn;wvr=6;WBStorage=42212210b087ca50|undefined;'
+}
+
+
 ROBOTSTXT_OBEY = False
 COOKIES_ENABLED = False
 REDIRECT_ENABLED = False
@@ -23,12 +31,12 @@ REDIRECT_ENABLED = False
 # CONCURRENT_REQUESTS = 1
 
 MONGO_URI = "localhost:27017"
-MONGO_DB  = '口罩'
+MONGO_DB  = '#武汉市委书记回应歧视湖北人#'
 
 CONTINUE_FROM_DB = True
 from datetime import datetime
 class Params:
-   KEYWORD = "口罩"
+   KEYWORD = "#武汉市委书记回应歧视湖北人#"
    START_TIME = datetime(2020, 1, 2, 0)
    END_TIME = datetime(2020, 2, 1, 0)
    PROVINCE_CODE = 0
@@ -78,11 +86,6 @@ ITEM_PIPELINES = {
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
-# Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-#}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html

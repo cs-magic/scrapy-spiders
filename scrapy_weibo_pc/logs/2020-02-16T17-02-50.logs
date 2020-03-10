@@ -1,0 +1,32 @@
+2020-02-16 17:02:50 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: scrapy_weibo_pc)
+2020-02-16 17:02:50 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-02-16 17:02:50 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrapy_weibo_pc', 'COOKIES_ENABLED': False, 'DUPEFILTER_CLASS': 'scrapy.dupefilters.BaseDupeFilter', 'LOGSTATS_INTERVAL': 0, 'LOG_FILE': 'logs/2020-02-16T17-02-50.logs', 'LOG_LEVEL': 10, 'NEWSPIDER_MODULE': 'scrapy_weibo_pc.spiders', 'REDIRECT_ENABLED': False, 'SPIDER_MODULES': ['scrapy_weibo_pc.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'}
+2020-02-16 17:02:50 [scrapy.extensions.telnet] INFO: Telnet Password: 26e559c8b257ae64
+2020-02-16 17:02:50 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2020-02-16 17:02:52 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-02-16 17:02:52 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-02-16 17:02:52 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrapy_weibo_pc.pipelines.ScrapyWeiboPcMongoPipeline']
+2020-02-16 17:02:52 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-02-16 17:03:03 [scrapy.core.engine] INFO: Spider opened
+2020-02-16 17:03:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://s.weibo.com/weibo?q=%23%E6%AD%A6%E6%B1%89%E5%B8%82%E5%A7%94%E4%B9%A6%E8%AE%B0%E5%9B%9E%E5%BA%94%E6%AD%A7%E8%A7%86%E6%B9%96%E5%8C%97%E4%BA%BA%23&typeall=1&suball=1&timescope=custom:2020-02-01:2020-02-01&Refer=g> (referer: None)
+2020-02-16 17:06:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): weibo.com:443
+2020-02-16 17:06:43 [urllib3.connectionpool] DEBUG: https://weibo.com:443 "GET /aj/v6/comment/big?ajwvr=6&id=4465813774051328&root_comment_max_id=153409695063137&root_comment_max_id_type=0&root_comment_ext_param=&page=7&filter=hot&sum_comment_number=894&filter_tips_before=1&from=singleWeiBo&__rnd=1581843943955 HTTP/1.1" 302 None
+2020-02-16 17:06:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.com:443
+2020-02-16 17:06:43 [urllib3.connectionpool] DEBUG: https://passport.weibo.com:443 "GET /visitor/visitor?entry=miniblog&a=enter&url=https%3A%2F%2Fweibo.com%2Faj%2Fv6%2Fcomment%2Fbig%3Fajwvr%3D6%26id%3D4465813774051328%26root_comment_max_id%3D153409695063137%26root_comment_max_id_type%3D0%26root_comment_ext_param%3D%26page%3D7%26filter%3Dhot%26sum_comment_number%3D894%26filter_tips_before%3D1%26from%3DsingleWeiBo%26__rnd%3D1581843943955&domain=.weibo.com&ua=php-sso_sdk_client-0.6.28&_rand=1581844004.4844 HTTP/1.1" 200 None

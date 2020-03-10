@@ -166,13 +166,15 @@ if __name__ == '__main__':
     """
     测试数据库history内的条目是否已经全部更新
     """
+
+    KEYWORD = '#武汉市委书记回应歧视湖北人#'
     import pymongo
     uri = pymongo.MongoClient()
-    db  = uri["口罩"]
+    db  = uri[KEYWORD]
     coll = db["history"] # type: pymongo.collection
     id_list = coll.distinct("_id")
     for day in range(1, 32):
-        day_str = "口罩-2020-1-{}".format(day)
+        day_str = "{}-2020-1-{}".format(KEYWORD, day)
         assert coll.find({"_id": {"$regex": day_str}}) != []
 
 
