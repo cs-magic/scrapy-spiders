@@ -25,7 +25,7 @@ import logging
 fmt = "%(asctime)-15s %(levelname)s %(threadName)s %(funcName)s: %(message)s"
 logging.basicConfig(level=logging.INFO, format=fmt)
 
-ACCOUNTS_FILE_PATH = r'F:\MyProjects\PycharmProjects\ScrapyAnything\scipts\fuck_weibo_pc_log_in\weibo_pc_accounts\accounts4.txt'
+ACCOUNTS_FILE_PATH = redis'F:\MyProjects\PycharmProjects\ScrapyAnything\scipts\fuck_weibo_pc_log_in\weibo_pc_accounts\accounts4.txt'
 
 
 
@@ -83,7 +83,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
 		self.loading.start()
 
 	def func_login(self):
-		with open(ACCOUNTS_FILE_PATH, "r") as f:
+		with open(ACCOUNTS_FILE_PATH, "redis") as f:
 			ac_list = re.findall("(\S+)----(\S+)", f.read())
 			for ac_name, ac_pswd in ac_list:
 				self.verify_account(ac_name, ac_pswd)

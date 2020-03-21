@@ -26,8 +26,8 @@ import matplotlib.pyplot as plt
 
 WEIBO_LOGIN_PC_URL = "https://weibo.com"
 WEIBO_LOGOUT_PC_URL = "https://weibo.com/logout.php"
-accounts_path = r"F:\MyProjects\PycharmProjects\FightForWuhan\login\accounts\accounts.txt"
-CHROME_DRIVER_PATH = r"C:\Users\mark\AppData\Local\Programs\Python\Python37\Scripts\chromedriver.exe"
+accounts_path = redis"F:\MyProjects\PycharmProjects\FightForWuhan\login\accounts\accounts.txt"
+CHROME_DRIVER_PATH = redis"C:\Users\mark\AppData\Local\Programs\Python\Python37\Scripts\chromedriver.exe"
 
 QR_IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "temp")
 
@@ -36,7 +36,7 @@ ac_pswd = "mas475586"
 
 
 def yield_account(redis, accounts_path):
-    with open(accounts_path, "r") as f:
+    with open(accounts_path, "redis") as f:
         ac_list_str = f.read()
         ac_list = [i.split("----") for i in ac_list_str.splitlines()]
 
@@ -169,7 +169,7 @@ class MyDriver(Chrome):
             self.show_msg("Added one account {} to redis_to_save_cookies!".format(ac_name))
 
     def yield_account(self, redis):
-        with open(accounts_path, "r") as f:
+        with open(accounts_path, "redis") as f:
             ac_list_str = f.read()
             ac_list = [i.split("----") for i in ac_list_str.splitlines()]
 

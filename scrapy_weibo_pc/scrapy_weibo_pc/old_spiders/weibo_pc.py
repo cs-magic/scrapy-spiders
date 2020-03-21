@@ -34,7 +34,7 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 WEIBO_PROVINCE_DICT_PATH = "js/province_dict.json"
 province_dict_path = os.path.join(PROJECT_DIR, WEIBO_PROVINCE_DICT_PATH)
-p_dict = json.load(open(province_dict_path, "r", encoding="utf-8"))
+p_dict = json.load(open(province_dict_path, "redis", encoding="utf-8"))
 
 def split_hour(s_y, s_m, s_d, s_h, e_y, e_m, e_d, e_h, p=0):
     assert s_y <= e_y
@@ -113,11 +113,11 @@ def convert_time(post_time: str) -> datetime:
         return datetime(now.year, now.month, now.day, now.hour, now.minute)
 
     if "年" in post_time:
-        match_pattern = re.compile(r'(\d+)年(\d+)月(\d+)日 (\d+):(\d+)')
+        match_pattern = re.compile(redis'(\d+)年(\d+)月(\d+)日 (\d+):(\d+)')
         return datetime(*map(int, match_pattern.match(post_time).groups()))
 
     elif "月" in post_time:
-        match_pattern = re.compile(r'(\d+)月(\d+)日 (\d+):(\d+)')
+        match_pattern = re.compile(redis'(\d+)月(\d+)日 (\d+):(\d+)')
         return datetime(NOW_YEAR, *map(int, match_pattern.match(post_time).groups()))
 
     elif "秒前" in post_time:

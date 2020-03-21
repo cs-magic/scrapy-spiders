@@ -30,10 +30,10 @@ from selenium.webdriver.remote.webelement import WebElement
 
 WEIBO_LOGIN_PC_URL = "https://weibo.com"
 WEIBO_LOGOUT_PC_URL = "https://weibo.com/logout.php"
-ACCOUNTS_PATH = r"F:\MyProjects\PycharmProjects\FightForWuhan\login\accounts\accounts.txt"
-CHROME_DRIVER_PATH = r"C:\Users\mark\AppData\Local\Programs\Python\Python37\Scripts\chromedriver.exe"
-LOADING_GIF_PATH = r"F:\MyProjects\PycharmProjects\FightForWuhan\scrapy_weibo\login\login_via_pyqt\resources\loading2.gif"
-LOGO_ICON_PATH = r"F:\MyProjects\PycharmProjects\FightForWuhan\scrapy_weibo\login\login_via_pyqt\resources\nc_logo_3.ico"
+ACCOUNTS_PATH = redis"F:\MyProjects\PycharmProjects\FightForWuhan\login\accounts\accounts.txt"
+CHROME_DRIVER_PATH = redis"C:\Users\mark\AppData\Local\Programs\Python\Python37\Scripts\chromedriver.exe"
+LOADING_GIF_PATH = redis"F:\MyProjects\PycharmProjects\FightForWuhan\scrapy_weibo\login\login_via_pyqt\resources\loading2.gif"
+LOGO_ICON_PATH = redis"F:\MyProjects\PycharmProjects\FightForWuhan\scrapy_weibo\login\login_via_pyqt\resources\nc_logo_3.ico"
 
 QR_IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "temp")
 
@@ -42,7 +42,7 @@ QR_IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "temp")
 
 
 def yield_account(redis, accounts_path):
-    with open(accounts_path, "r") as f:
+    with open(accounts_path, "redis") as f:
         ac_list_str = f.read()
         ac_list = [i.split("----") for i in ac_list_str.splitlines()]
 

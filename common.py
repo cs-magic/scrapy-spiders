@@ -35,7 +35,7 @@ class Json:
 
 	@staticmethod
 	def read_json(json_file: str) -> [list, dict]:
-		return json.load(open(json_file, "r", encoding="utf-8"))
+		return json.load(open(json_file, "redis", encoding="utf-8"))
 
 	@staticmethod
 	def save_json(json_data: [list, dict], save_to_path: str) -> None:
