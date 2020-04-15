@@ -46,7 +46,9 @@ class Params:
 
 import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
-
+log_dir = os.path.join(PROJECT_DIR, 'logs')
+if not os.path.exists(log_dir):
+    os.mkdir(log_dir)
 
 import logging
 LOG_LEVEL = logging.DEBUG

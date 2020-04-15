@@ -5,12 +5,38 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+import scrapy
 from scrapy import signals
 from scrapy.exceptions import IgnoreRequest
 import random
 
+import pymongo
+uri = pymongo.MongoClient()
+db  = uri['scrapy_douban']
 
-ip_dict = {"code":0,"data":[{"ip":"58.218.201.122","port":4113,"outip":"112.64.91.133"},{"ip":"58.218.201.122","port":3782,"outip":"140.206.193.198"},{"ip":"58.218.200.253","port":7642,"outip":"103.40.223.207"},{"ip":"58.218.201.122","port":8897,"outip":"223.167.142.222"},{"ip":"58.218.201.122","port":7635,"outip":"112.64.8.220"},{"ip":"58.218.200.220","port":2358,"outip":"180.165.65.66"},{"ip":"58.218.201.114","port":3050,"outip":"183.192.75.130"},{"ip":"58.218.200.220","port":2803,"outip":"211.161.241.20"},{"ip":"58.218.201.114","port":2558,"outip":"183.192.75.130"},{"ip":"58.218.201.114","port":4572,"outip":"117.186.42.250"}],"msg":"0","success":True}
+
+ips = '''
+
+'''
+
+def convert_ips(ips) -> list:
+    return list(map(lambda x: "http://" + x, filter(lambda x: x and not x.startswith("#"), ips.splitlines())))
+
+ip_list = convert_ips(ips)
+
+def fetch_more_ip():
+    URL_FETCH_IP = 'http://http.tiqu.alicdns.com/getip3?num=10&type=1&pro=310000&city=0&yys=0&port=1&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions='
+    import requests
+    res = requests.get(URL_FETCH_IP)
+    return res.text
+
+def check_ip_list(N=10):
+    if len(ip_list) < N:
+        new_ip_list = convert_ips(fetch_more_ip())
+        print("Added {} ips.".format(len(new_ip_list)))
+        ip_list.extend(new_ip_list)
+
+
 
 
 class ScrapyDoubanSpiderMiddleware(object):
@@ -24,6 +50,9 @@ class ScrapyDoubanSpiderMiddleware(object):
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
+
+    def __init__(self):
+        self.coll = db['film_seeds']
 
     def process_spider_input(self, response, spider):
         # Called for each response that goes through the spider
@@ -54,11 +83,16 @@ class ScrapyDoubanSpiderMiddleware(object):
         # that it doesn’t have a response associated.
 
         # Must return only requests (not items).
-        for r in start_requests:
-            yield r
+        # for r in start_requests:
+        #     yield r
+
+        for item in self.coll.find({'status': {"$exists": False}}).limit(0):
+            url = item['url']
+            yield scrapy.Request(url, meta={"_id": item['_id']}, dont_filter=True)
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
 
 
 class ScrapyDoubanDownloaderMiddleware(object):
@@ -71,11 +105,10 @@ class ScrapyDoubanDownloaderMiddleware(object):
         # This method is used by Scrapy to create your spiders.
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        crawler.signals.connect(s.spider_closed, signal=signals.spider_closed)
         return s
 
     def __init__(self):
-        self.proxys = list(map(lambda x: "http://{}:{}".format(x['ip'], x['port']),
-                               ip_dict['data']))
         self.proxy_invalid_set = set()
 
 
@@ -89,12 +122,22 @@ class ScrapyDoubanDownloaderMiddleware(object):
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        if not self.proxys:
-            raise IgnoreRequest("No proxy valid!")
-        request.meta["proxy"] = random.choice(list(self.proxys))
 
+        # return None
+
+        check_ip_list()
+        request.meta["proxy"] = random.choice(ip_list)
 
         return None
+
+    def remove_proxy(self, request, spider):
+        proxy = request.meta['proxy']
+        try:
+            ip_list.remove(proxy)
+        except:
+            pass
+        spider.logger.warning("Remaining: [{}/{}], Remove one proxy {}".format(
+            len(ip_list), len(ip_list), proxy))
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.
@@ -103,18 +146,16 @@ class ScrapyDoubanDownloaderMiddleware(object):
         # - return a Response object
         # - return a Request object
         # - or raise IgnoreRequest
-        if response.status == 200 and not "检测到有异常请求从您的IP发出，请登录再试!" in response.text:
-            return response
+
+        if not response.status == 200:
+            self.remove_proxy(request, spider)
+            spider.logger.warning({"Status": response.status})
+        elif "检测到有异常请求从您的IP发出，请登录再试!" in response.text:
+            self.remove_proxy(request, spider)
+            spider.logger.warning({"IP_Warning": response.text})
         else:
-            proxy = request.meta['proxy']
-            try:
-                self.proxys.remove(proxy)
-            except:
-                pass
-            self.proxy_invalid_set.add(proxy)
-            spider.logger.warning("Remaining: [{}/{}], Remove one proxy {}".format(
-                len(self.proxys), len(ip_dict), proxy))
-            return request
+            return response
+        return request
 
     def process_exception(self, request, exception, spider):
         # Called when a download handler or a process_request()
@@ -124,10 +165,15 @@ class ScrapyDoubanDownloaderMiddleware(object):
         # - return None: continue processing this exception
         # - return a Response object: stops process_exception() chain
         # - return a Request object: stops process_exception() chain
-        pass
+        spider.logger.warning({"Exception": exception})
+        self.remove_proxy(request, spider)
+        return request
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+    def spider_closed(self, spider):
         import json
-        json.dump(list(self.proxy_invalid_set)), open("proxys.json", 'w')
+        json.dump(ip_list, open("proxies.json", "w"))
+
 

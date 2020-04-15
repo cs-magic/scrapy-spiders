@@ -24,7 +24,7 @@ params = {
 }
 
 class DoubanFilmsSpider(scrapy.Spider):
-	name = 'douban_films'
+	name = 'film_seeds'
 	allowed_domains = ['douban.com', 'movie.douban.com']
 
 	result = defaultdict(list)
