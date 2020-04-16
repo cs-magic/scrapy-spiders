@@ -83,7 +83,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
 		self.loading.start()
 
 	def func_login(self):
-		with open(ACCOUNTS_FILE_PATH, "redis") as f:
+		with open(ACCOUNTS_FILE_PATH, "r") as f:
 			ac_list = re.findall("(\S+)----(\S+)", f.read())
 			for ac_name, ac_pswd in ac_list:
 				self.verify_account(ac_name, ac_pswd)
