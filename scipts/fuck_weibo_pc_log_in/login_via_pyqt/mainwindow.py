@@ -100,7 +100,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "谷歌驱动路径："))
         self.input_driver_path.setText(_translate("MainWindow", "C:\\Users\\mark\\AppData\\Local\\Programs\\Python\\Python37\\Scripts\\chromedriver.exe"))
         self.label_5.setText(_translate("MainWindow", "账号配置路径："))
-        self.input_accounts_path.setText(_translate("MainWindow", "F:\\MyProjects\\PycharmProjects\\FightForWuhan\\login\\accounts\\accounts.txt"))
+        self.input_accounts_path.setText(_translate("MainWindow", "accounts/ccounts_wlj.txt"))
         self.label.setText(_translate("MainWindow", "请输入验证码："))
         self.submit_btn.setText(_translate("MainWindow", "Submit"))
         self.start_btn.setText(_translate("MainWindow", "START"))

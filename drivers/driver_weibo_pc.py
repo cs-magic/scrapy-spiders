@@ -7,6 +7,7 @@
 
 from .driver_base import *
 from .settings_drivers import logger_driver
+from selenium.common.exceptions import TimeoutException
 
 import time
 from PIL import Image
@@ -34,10 +35,15 @@ class WeiboDriver(DriverBaseChrome):
 
 	@property
 	def qr_img(self) -> Image:
-		ele_qr_img = self.wait.until(EC.element_to_be_clickable(
-			(By.CSS_SELECTOR, ".layer_login_register_v2 .code img"))) # type: WebElement
-		# self._qr_src = self.qr_ele.get_attribute("src")
-		return Image.open(BytesIO(ele_qr_img.screenshot_as_png))
+		try:
+			ele_qr_img = self.wait.until(EC.element_to_be_clickable(
+				(By.CSS_SELECTOR, ".layer_login_register_v2 .code img"))) # type: WebElement
+		except TimeoutException as e:
+			logger_driver.warning("Timeout and Auto Quit！")
+			self.quit()
+		else:
+			# self._qr_src = self.qr_ele.get_attribute("src")
+			return Image.open(BytesIO(ele_qr_img.screenshot_as_png))
 
 	def input_ac_info(self):
 		# 当当前页面非微博登录首页时，则访问
