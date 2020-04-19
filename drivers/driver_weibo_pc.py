@@ -113,7 +113,7 @@ class WeiboDriver(DriverBaseChrome):
 	def test_target_url(self) -> bool:
 		logger_driver.info("Testing the target url...")
 		self.get(self.TEST_ACCOUNT_URL)
-		if "security" in self.current_url:
+		if "security" in self.current_url or "sorry" in self.current_url:
 			self.ac_status = self.ACCOUNT_STATUS.FAIL_TO_TEST
 			logger_driver.info("Failed to pass the test!")
 			return False
