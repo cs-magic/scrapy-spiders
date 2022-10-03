@@ -1,0 +1,6 @@
+[submodule "sjm_dnf_prices"]
+	path = sjm_dnf_prices
+	url = https://github.com/m-archive/sjm_dnf_prices
+[submodule "QSR_shareholders"]
+	path = QSR_shareholders
+	url = ./QSR_shareholders
