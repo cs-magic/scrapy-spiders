@@ -4,7 +4,7 @@ Automat==0.8.0
 beautifulsoup4==4.8.2
 bokeh==1.4.0
 bs4==0.0.1
-certifi==2019.11.28
+certifi==2022.12.7
 cffi==1.14.0
 chardet==3.0.4
 Click==7.0
