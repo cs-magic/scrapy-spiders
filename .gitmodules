@@ -4,3 +4,6 @@
 [submodule "QSR_shareholders"]
 	path = QSR_shareholders
 	url = ./QSR_shareholders
+[submodule "scrapy_pixiv"]
+	path = scrapy_pixiv
+	url = git@github.com:cs-magic/scrapy_pixiv.git
