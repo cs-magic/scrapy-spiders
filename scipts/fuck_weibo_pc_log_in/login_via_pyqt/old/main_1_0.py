@@ -355,7 +355,7 @@ class MyUi(QMainWindow, PrintfMainWindow):
         if not self.drivers_thread or self.drivers_thread.drivers_queue.empty():
             loading_gif = QtGui.QMovie(LOADING_GIF_PATH)
             self.qr_img_label.setMovie(loading_gif)
-            loading_gif.start()
+            loading_gif.total_start()
 
     def func_refresh_qr_img(self):
         """

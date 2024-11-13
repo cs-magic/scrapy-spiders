@@ -80,7 +80,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
 
 	def _show_img_of_loading(self):
 		self.qr_lable.setMovie(self.loading)
-		self.loading.start()
+		self.loading.total_start()
 
 	def func_login(self):
 		with open(ACCOUNTS_FILE_PATH, "r") as f:
